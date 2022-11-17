@@ -639,6 +639,10 @@ wint_t TilesFramework::_handle_control_message(sockaddr_un addr, string data)
     {
         process_command(CMD_QUAFF);
     }
+    else if (msgtype == "show_drop_menu")
+    {
+        process_command(CMD_DROP);
+    }
     
     return c;
 }
