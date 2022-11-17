@@ -18,7 +18,7 @@ function ($, comm, client, cr, enums, options, player, icons, gui, main,
     var font; // cached font name for the canvas: size (in px) + family
     var draw_glyphs;
     var selected = -1;
-    const NUM_RESERVED_BUTTONS = 11;
+    const NUM_RESERVED_BUTTONS = 12;
 
     function send_options()
     {
@@ -192,6 +192,9 @@ function ($, comm, client, cr, enums, options, player, icons, gui, main,
                 break;
             case 10:
                 $tooltip.html("<span>Left click: show potion menu</span>");
+                break;
+            case 11:
+                $tooltip.html("<span>Left click: show drop item menu</span>");
                 break;
             default:
                 var item = filtered_inv[slot];
@@ -374,6 +377,9 @@ function ($, comm, client, cr, enums, options, player, icons, gui, main,
                         case 10:
                             comm.send_message("show_potion_menu");
                             break;
+                        case 11:
+                            comm.send_message("show_drop_menu");
+                            break;
                     }
                     
                 }
@@ -532,6 +538,8 @@ function ($, comm, client, cr, enums, options, player, icons, gui, main,
             selected == 9);
         draw_action(main, main.POTION_OFFSET_2, null, inc*10, adjusted_scale,
             selected == 10);
+        draw_action(gui, gui.CMD_DROP, null, inc*11, adjusted_scale,
+            selected == 11);
         
 
         draw_glyphs = options.get("action_panel_glyphs");
