@@ -635,6 +635,10 @@ wint_t TilesFramework::_handle_control_message(sockaddr_un addr, string data)
     {
         process_command(CMD_REST);
     }
+    else if (msgtype == "show_potion_menu")
+    {
+        process_command(CMD_QUAFF);
+    }
     
     return c;
 }
