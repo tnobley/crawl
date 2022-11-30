@@ -643,6 +643,10 @@ wint_t TilesFramework::_handle_control_message(sockaddr_un addr, string data)
     {
         process_command(CMD_DROP);
     }
+    else if (msgtype == "show_abilities")
+    {
+        process_command(CMD_DISPLAY_MUTATIONS);
+    }
     
     return c;
 }
